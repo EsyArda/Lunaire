@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player.png-395d478873158fe6494947da3465680a.stex"
+path="res://.import/hero-attack-4.png-ffbccd4cc63550121c1d32fd51d9d022.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesets/player.png"
-dest_files=[ "res://.import/player.png-395d478873158fe6494947da3465680a.stex" ]
+source_file="res://Tilesets/Player/hero-attack/hero-attack-4.png"
+dest_files=[ "res://.import/hero-attack-4.png-ffbccd4cc63550121c1d32fd51d9d022.stex" ]
 
 [params]
 
