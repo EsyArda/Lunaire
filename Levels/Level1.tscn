@@ -80,4 +80,5 @@ autoplay = true
 
 [node name="Origin" parent="." instance=ExtResource( 7 )]
 position = Vector2( 69.4534, -0.722477 )
+
 [connection signal="player_stats_changed" from="Player" to="HUD/GUI" method="_on_Player_player_stats_changed"]

@@ -4,34 +4,42 @@
 [ext_resource path="res://Tilesets/NightMareHorses/nightmare-idle.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 128, 96 )
 
 [sub_resource type="AtlasTexture" id=2]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 128, 0, 128, 96 )
 
 [sub_resource type="AtlasTexture" id=3]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 256, 0, 128, 96 )
 
 [sub_resource type="AtlasTexture" id=4]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 384, 0, 128, 96 )
 
 [sub_resource type="AtlasTexture" id=5]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 144, 96 )
 
 [sub_resource type="AtlasTexture" id=6]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 144, 0, 144, 96 )
 
 [sub_resource type="AtlasTexture" id=7]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 288, 0, 144, 96 )
 
 [sub_resource type="AtlasTexture" id=8]
+flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 432, 0, 144, 96 )
 
@@ -52,7 +60,7 @@ animations = [ {
 radius = 12.8185
 height = 26.865
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D3" type="KinematicBody2D"]
 position = Vector2( 248.958, 56.5156 )
 __meta__ = {
 "_edit_group_": true
