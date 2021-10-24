@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const next_scene = preload("res://Scenes/StartScreen.tscn")
+const next_scene = preload("res://Levels/Level1.tscn")
 
 func _ready():
 	pass
