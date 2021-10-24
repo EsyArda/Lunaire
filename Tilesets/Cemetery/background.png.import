@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/objects.png-6a76b514d0f78634f6d453e8ead3671d.stex"
+path="res://.import/background.png-702b44c9955059a135edb8b7e3d8128e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesets/Environment/objects.png"
-dest_files=[ "res://.import/objects.png-6a76b514d0f78634f6d453e8ead3671d.stex" ]
+source_file="res://Tilesets/Cemetery/background.png"
+dest_files=[ "res://.import/background.png-702b44c9955059a135edb8b7e3d8128e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
