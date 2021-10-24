@@ -40,20 +40,12 @@ func _process(delta):
 	if state == S_ATTACK and $Attack.frame == 7:
 		SetAttackHitBox()
 	
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += delta * 10
-	
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= delta * 10
-		
 	if velocity.x < -0.1:
 		get_owner().scale = Vector2(1*s, 1*s)
 		
 	if velocity.x > 0.1:
 		get_owner().scale = Vector2(-1*s, 1*s)
 		
-	if Input.is_action_just_pressed("ui_accept"):
-		Attack()
 	if Stat_HP <= 0:
 		queue_free()
 	
@@ -74,7 +66,14 @@ func SetAnimIdle():
 	$Attack.visible = false
 	$Idle.visible = true
 	$Idle.frame = 0
-
+	
+func MoveLeft(delta):
+	velocity.x -= delta * 10
+	
+func MoveRight(delta):
+	velocity.x += delta * 10	
+	
+	
 func hit(dmg):
 	Stat_HP -= dmg
 

@@ -107,7 +107,6 @@ script = ExtResource( 1 )
 position = Vector2( 16.7211, -2.62885 )
 frames = SubResource( 7 )
 animation = "Idle"
-frame = 4
 playing = true
 
 [node name="Attack" type="AnimatedSprite" parent="Demon"]
