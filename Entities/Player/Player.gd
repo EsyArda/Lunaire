@@ -1,10 +1,5 @@
 extends KinematicBody2D
 
-<<<<<<< Updated upstream
-=======
-const end_scene = preload("res://Scenes/EndSreen.tscn")
->>>>>>> Stashed changes
-
 const end_scene = preload("res://Scenes/EndSreen.tscn")
 
 export var move_speed := 50
@@ -106,10 +101,8 @@ func hit(dmg):
 func death():
 	$AnimatedSprite.animation = "hurt"
 	health = 0
-	alive = false
 	emit_signal("player_stats_changed", self)
-	get_parent().add_child(end_scene.instance())
-	queue_free()
+	alive = false
 
 
 func _on_AnimatedSprite_animation_finished():
