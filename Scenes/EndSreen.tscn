@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Ressources/Vampire Zone.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Tilesets/Environment/background.png" type="Texture" id=2]
 [ext_resource path="res://Tilesets/Environment/graveyard.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/EndScreen.gd" type="Script" id=4]
+[ext_resource path="res://Ressources/rpg_village02_loop.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -93,3 +94,8 @@ uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="EndScreen"]
+stream = ExtResource( 5 )
+volume_db = -4.03
+autoplay = true
