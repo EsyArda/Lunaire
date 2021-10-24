@@ -93,14 +93,11 @@ radius = 30.4694
 height = 21.5017
 
 [sub_resource type="CapsuleShape2D" id=21]
-radius = 26.099
-height = 43.6981
+radius = 23.943
+height = 71.2142
 
 [node name="Origin" type="Node2D"]
-position = Vector2( 98.1644, 48.2225 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 93.2644, 48.0901 )
 
 [node name="Demon" type="KinematicBody2D" parent="."]
 scale = Vector2( 0.3, 0.3 )
@@ -110,7 +107,7 @@ script = ExtResource( 1 )
 position = Vector2( 16.7211, -2.62885 )
 frames = SubResource( 7 )
 animation = "Idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Attack" type="AnimatedSprite" parent="Demon"]
@@ -118,11 +115,10 @@ visible = false
 position = Vector2( -22.0735, -26.278 )
 frames = SubResource( 19 )
 animation = "Attack"
-frame = 5
+frame = 13
 playing = true
 
 [node name="Body" type="CollisionShape2D" parent="Demon"]
-visible = false
 position = Vector2( -0.39041, 5.65348 )
 shape = SubResource( 20 )
 
@@ -136,25 +132,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AttackZone" type="CollisionShape2D" parent="Demon"]
-visible = false
+[node name="AttackZone" type="Area2D" parent="Demon"]
 position = Vector2( -72.8777, 29.7817 )
 rotation = 1.5708
-shape = SubResource( 21 )
 
 [node name="Area" type="ColorRect" parent="Demon/AttackZone"]
-margin_left = -22.7054
-margin_top = -43.1161
-margin_right = 24.2946
-margin_bottom = 42.8839
+margin_left = -23.0
+margin_top = -43.0
+margin_right = 24.0
+margin_bottom = 71.0
 color = Color( 1, 0, 0, 0.603922 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Demon/AttackZone"]
+position = Vector2( -0.233795, 17.8677 )
+shape = SubResource( 21 )
 
 [node name="TimeAttack" type="Timer" parent="Demon"]
 wait_time = 3.0
 autostart = true
 
 [connection signal="animation_finished" from="Demon/Attack" to="Demon" method="_on_Attack_animation_finished"]
+[connection signal="body_entered" from="Demon/AttackZone" to="Demon" method="_on_AttackZone_body_entered"]
 [connection signal="timeout" from="Demon/TimeAttack" to="Demon" method="_on_TimeAttack_timeout"]

@@ -10,20 +10,21 @@ var velocity = Vector2()
 var floatTimer = 0.0
 const floatRad = 20
 var state = 0
+var s
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# STAT ==============
+var Stat_HP = 15
+var Stat_DMG = 5
+#====================
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$Attack.visible = false
 	$Idle.visible = true
-	$AttackZone.disabled = true
+	$AttackZone/CollisionShape2D.disabled = true
 	$Body.disabled = false
 	$Body/Area.visible = ShowHitZone
 	$AttackZone/Area.visible = false
+	s = get_parent().scale.x
 	randomize()
 
 
@@ -46,20 +47,22 @@ func _process(delta):
 		velocity.x -= delta * 10
 		
 	if velocity.x < -0.1:
-		get_owner().scale = Vector2(1, 1)
+		get_owner().scale = Vector2(1*s, 1*s)
 		
 	if velocity.x > 0.1:
-		get_owner().scale = Vector2(-1, 1)			
+		get_owner().scale = Vector2(-1*s, 1*s)
 		
 	if Input.is_action_just_pressed("ui_accept"):
 		Attack()
-		
+	if Stat_HP <= 0:
+		queue_free()
+	
 func Attack():
 	state = S_ATTACK
 	SetAnimAttack()
 	
 func SetAttackHitBox():
-	$AttackZone.disabled = false
+	$AttackZone/CollisionShape2D.disabled = false
 	$AttackZone/Area.visible = ShowHitZone
 
 func SetAnimAttack():
@@ -72,6 +75,8 @@ func SetAnimIdle():
 	$Idle.visible = true
 	$Idle.frame = 0
 
+func hit(dmg):
+	Stat_HP -= dmg
 
 func _on_TimeAttack_timeout():
 	Attack()
@@ -81,6 +86,10 @@ func _on_TimeAttack_timeout():
 func _on_Attack_animation_finished():
 	SetAnimIdle()
 	state = S_IDLE
-	$AttackZone.disabled = true
+	$AttackZone/CollisionShape2D.disabled = true
 	$AttackZone/Area.visible = false
 
+
+func _on_AttackZone_body_entered(body):
+	if state == S_ATTACK:
+		body.hit(Stat_DMG)
