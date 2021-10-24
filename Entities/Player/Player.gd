@@ -21,6 +21,7 @@ signal player_stats_changed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	emit_signal("player_stats_changed", self)
+	print("p")
 
 
 func _physics_process(delta):
@@ -51,8 +52,11 @@ func _process(delta):
 		change_animation()
 
 func change_animation():
+	
+	# Pour qu'il arrête d'attacker
 	if $AnimatedSprite.animation == "attack" && $AnimatedSprite.frame == $AnimatedSprite.frames.get_frame_count("attack") - 1:
 		attack_playing = false
+	
 	# face left or right
 	if velocity.x > 0:
 		$AnimatedSprite.flip_h = false
@@ -85,7 +89,7 @@ func _input(event):
 func hit(dmg):
 	if alive:
 		health -= dmg
-		print("vie restante", health)
+		emit_signal("player_stats_changed", self)
 		if health <= 0:
 			alive = false
 			$AnimatedSprite.animation = "hurt"
