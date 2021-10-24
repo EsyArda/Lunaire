@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/4.png-a54bd11ba412ec31012fee8b1edabf35.stex"
+path="res://.import/4.png-f0f4c6ac56310f375b9bc75aed610d20.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpriteLune/4.png"
-dest_files=[ "res://.import/4.png-a54bd11ba412ec31012fee8b1edabf35.stex" ]
+source_file="res://Tilesets/SpriteLune/4.png"
+dest_files=[ "res://.import/4.png-f0f4c6ac56310f375b9bc75aed610d20.stex" ]
 
 [params]
 
