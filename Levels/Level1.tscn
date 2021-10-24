@@ -73,6 +73,7 @@ jump_speed = 300
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="HUD" instance=ExtResource( 6 )]
+<<<<<<< HEAD
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
@@ -81,4 +82,6 @@ autoplay = true
 [node name="Origin" parent="." instance=ExtResource( 7 )]
 position = Vector2( 69.4534, -0.722477 )
 
+=======
+>>>>>>> 8793d07045e4c9ef7659f1df269fe207cba04db7
 [connection signal="player_stats_changed" from="Player" to="HUD/GUI" method="_on_Player_player_stats_changed"]
