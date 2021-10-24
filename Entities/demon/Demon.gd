@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const ShowHitZone = true
+export var ShowHitZone = false
 
 const S_ATTACK = 1
 const S_IDLE = 0
@@ -92,4 +92,5 @@ func _on_Attack_animation_finished():
 
 func _on_AttackZone_body_entered(body):
 	if state == S_ATTACK:
-		body.hit(Stat_DMG)
+		pass
+	#	body.hit(Stat_DMG)

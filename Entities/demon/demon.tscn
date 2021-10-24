@@ -107,7 +107,7 @@ script = ExtResource( 1 )
 position = Vector2( 16.7211, -2.62885 )
 frames = SubResource( 7 )
 animation = "Idle"
-frame = 2
+frame = 4
 playing = true
 
 [node name="Attack" type="AnimatedSprite" parent="Demon"]
@@ -115,10 +115,11 @@ visible = false
 position = Vector2( -22.0735, -26.278 )
 frames = SubResource( 19 )
 animation = "Attack"
-frame = 13
+frame = 12
 playing = true
 
 [node name="Body" type="CollisionShape2D" parent="Demon"]
+visible = false
 position = Vector2( -0.39041, 5.65348 )
 shape = SubResource( 20 )
 
@@ -133,6 +134,7 @@ __meta__ = {
 }
 
 [node name="AttackZone" type="Area2D" parent="Demon"]
+visible = false
 position = Vector2( -72.8777, 29.7817 )
 rotation = 1.5708
 
