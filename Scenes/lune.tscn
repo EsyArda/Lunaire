@@ -22,7 +22,7 @@ animations = [ {
 [node name="AnimatedSprite" type="AnimatedSprite"]
 frames = SubResource( 1 )
 animation = "lune"
-frame = 1
+frame = 7
 speed_scale = 0.3
 playing = true
 script = ExtResource( 10 )
