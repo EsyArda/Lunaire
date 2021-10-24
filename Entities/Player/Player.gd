@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+<<<<<<< Updated upstream
+=======
+const end_scene = preload("res://Scenes/EndSreen.tscn")
+>>>>>>> Stashed changes
 
 const end_scene = preload("res://Scenes/EndSreen.tscn")
 
