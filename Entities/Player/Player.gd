@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+const next_scene = preload("res://Scenes/EndSreen.tscn")
 
 export var move_speed := 50
 export var gravity := 1000
@@ -29,11 +30,14 @@ func _physics_process(delta):
 	velocity.x = 0
 	
 	if alive:
+		if position.y >= 300:
+			 hit(1)
+		
 		if Input.is_action_pressed("move_right"):
 			velocity.x += move_speed
 		if Input.is_action_pressed("move_left"):
 			velocity.x -= move_speed
-		if Input.is_action_pressed("jump"):
+		if Input.is_action_just_pressed("jump"):
 			if is_on_floor():
 				velocity.y = -jump_speed
 	
@@ -92,8 +96,15 @@ func hit(dmg):
 		health -= dmg
 		emit_signal("player_stats_changed", self)
 		if health <= 0:
-			alive = false
-			$AnimatedSprite.animation = "hurt"
+			death()
+
+func death():
+	alive = false
+	health = 0
+	emit_signal("player_stats_changed", self)
+	$AnimatedSprite.animation = "hurt"
+	get_parent().add_child(first_scene.instance())
+		queue_free()
 
 
 func _on_AnimatedSprite_animation_finished():
