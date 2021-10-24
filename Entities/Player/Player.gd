@@ -8,6 +8,7 @@ export var jump_speed := 250
 export var max_health := 20
 var health = max_health
 var alive = true
+var finished = false
 
 var attack_cooldown_time = 500
 var next_attack_time = 0
@@ -93,7 +94,7 @@ func hit(dmg):
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "death":
-		queue_free()
+		finished = true
 	if $AnimatedSprite.animation == "hurt":
 		$AnimatedSprite.play("death")
 	

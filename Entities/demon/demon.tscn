@@ -100,7 +100,7 @@ height = 71.2142
 position = Vector2( 93.2644, 48.0901 )
 
 [node name="Demon" type="KinematicBody2D" parent="."]
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.6, 0.6 )
 script = ExtResource( 1 )
 
 [node name="Idle" type="AnimatedSprite" parent="Demon"]
@@ -114,7 +114,7 @@ visible = false
 position = Vector2( -22.0735, -26.278 )
 frames = SubResource( 19 )
 animation = "Attack"
-frame = 12
+frame = 8
 playing = true
 
 [node name="Body" type="CollisionShape2D" parent="Demon"]
