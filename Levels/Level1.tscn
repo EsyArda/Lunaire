@@ -74,3 +74,4 @@ jump_speed = 300
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+[connection signal="player_stats_changed" from="Player" to="HUD/GUI" method="_on_Player_player_stats_changed"]
