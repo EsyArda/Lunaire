@@ -14,7 +14,7 @@ var s
 
 # STAT ==============
 var Stat_HP = 15
-var Stat_DMG = 5
+var Stat_DMG = 500
 #====================
 
 func _ready():
@@ -71,7 +71,7 @@ func MoveLeft(delta):
 	velocity.x -= delta * 10
 	
 func MoveRight(delta):
-	velocity.x += delta * 10	
+	velocity.x += delta * 10
 	
 	
 func hit(dmg):
@@ -91,5 +91,4 @@ func _on_Attack_animation_finished():
 
 func _on_AttackZone_body_entered(body):
 	if state == S_ATTACK:
-		pass
-	#	body.hit(Stat_DMG)
+		body.hit(Stat_DMG)

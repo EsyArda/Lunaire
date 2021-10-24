@@ -7,6 +7,7 @@ export var jump_speed := 250
 
 export var max_health := 20
 var health = max_health
+var alive = true
 
 var attack_cooldown_time = 500
 var next_attack_time = 0
@@ -25,16 +26,16 @@ func _ready():
 func _physics_process(delta):
 	velocity.x = 0
 	
-	if Input.is_action_pressed("move_right"):
-		velocity.x += move_speed
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= move_speed
+	if alive:
+		if Input.is_action_pressed("move_right"):
+			velocity.x += move_speed
+		if Input.is_action_pressed("move_left"):
+			velocity.x -= move_speed
+		if Input.is_action_pressed("jump"):
+			if is_on_floor():
+				velocity.y = -jump_speed
 	
 	velocity.y += gravity*delta
-	
-	if Input.is_action_pressed("jump"):
-		if is_on_floor():
-			velocity.y = -jump_speed
 	
 	if velocity.x > 0:
 		$RayCast2D.cast_to = Vector2.RIGHT
@@ -46,7 +47,8 @@ func _physics_process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
-	change_animation()
+	if alive:
+		change_animation()
 
 func change_animation():
 	if $AnimatedSprite.animation == "attack" && $AnimatedSprite.frame == $AnimatedSprite.frames.get_frame_count("attack"):
@@ -65,7 +67,7 @@ func change_animation():
 			$AnimatedSprite.play("idle")
 
 func _input(event):
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("attack") && alive:
 		# Check if player can attack
 		var now = OS.get_ticks_msec()
 		if now >= next_attack_time:
@@ -81,3 +83,19 @@ func _input(event):
 
 func _on_Sprite_animation_finished():
 	attack_playing = false
+
+func hit(dmg):
+	if alive:
+		health -= dmg
+		print("vie restante", health)
+		if health <= 0:
+			alive = false
+			$AnimatedSprite.animation = "hurt"
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "death":
+		queue_free()
+	if $AnimatedSprite.animation == "hurt":
+		$AnimatedSprite.play("death")
+	
