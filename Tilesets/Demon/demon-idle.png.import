@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/9.png-ed009c1196c2c9184de44dc1729f7e16.stex"
+path="res://.import/demon-idle.png-bc955a2ffa4a8d2539199ddff67cc573.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesets/SpriteLune/9.png"
-dest_files=[ "res://.import/9.png-ed009c1196c2c9184de44dc1729f7e16.stex" ]
+source_file="res://Tilesets/Demon/demon-idle.png"
+dest_files=[ "res://.import/demon-idle.png-bc955a2ffa4a8d2539199ddff67cc573.stex" ]
 
 [params]
 
