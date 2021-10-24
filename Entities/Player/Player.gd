@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+<<<<<<< Updated upstream
+=======
+const end_scene = preload("res://Scenes/EndSreen.tscn")
+>>>>>>> Stashed changes
 
 export var move_speed := 50
 export var gravity := 1000
@@ -91,8 +95,15 @@ func hit(dmg):
 		health -= dmg
 		emit_signal("player_stats_changed", self)
 		if health <= 0:
-			alive = false
-			$AnimatedSprite.animation = "hurt"
+			death()
+
+func death():
+	$AnimatedSprite.animation = "hurt"
+	health = 0
+	alive = false
+	emit_signal("player_stats_changed", self)
+	get_parent().add_child(end_scene.instance())
+	queue_free()
 
 
 func _on_AnimatedSprite_animation_finished():

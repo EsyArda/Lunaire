@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=8 format=2]
+=======
+[gd_scene load_steps=7 format=2]
+>>>>>>> Stashed changes
 
 [ext_resource path="res://Tilesets/Environment/background.png" type="Texture" id=1]
 [ext_resource path="res://Tilesets/Environment/graveyard.png" type="Texture" id=2]
@@ -6,7 +10,10 @@
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=6]
+<<<<<<< Updated upstream
 [ext_resource path="res://Ressources/rpg_village02_loop.mp3" type="AudioStream" id=7]
+=======
+>>>>>>> Stashed changes
 
 [node name="Level1" type="Node2D"]
 
