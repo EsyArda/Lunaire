@@ -8,3 +8,4 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		get_parent().add_child(first_scene.instance())
+		queue_free()
