@@ -51,6 +51,7 @@ func _process(delta):
 func change_animation():
 	if $AnimatedSprite.animation == "attack" && $AnimatedSprite.frame == $AnimatedSprite.frames.get_frame_count("attack"):
 		attack_playing = false
+		print("hey")
 	# face left or right
 	if velocity.x > 0:
 		$AnimatedSprite.flip_h = false
@@ -80,4 +81,5 @@ func _input(event):
 			next_attack_time = now + attack_cooldown_time
 
 func _on_Sprite_animation_finished():
+	print("attakc palying = false")
 	attack_playing = false
